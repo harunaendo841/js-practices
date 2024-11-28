@@ -22,24 +22,24 @@ function printCalendar(year, month) {
   const lastDay = new Date(year, month, 0);
 
   const daysOfWeek = "日 月 火 水 木 金 土";
-  const totalDays = lastDay.getDate();
-  const firstDayOfWeek = firstDay.getDay();
-
   console.log(`      ${month}月 ${year}`);
   console.log(daysOfWeek);
 
   let calendar = "";
-  let currentDayOfWeek = firstDayOfWeek;
+  let currentDate = new Date(firstDay);
 
-  calendar += "   ".repeat(currentDayOfWeek);
+  for (let i = 0; i < currentDate.getDay(); i++) {
+    calendar += "   ";
+  }
 
-  for (let day = 1; day <= totalDays; day++) {
+  while (currentDate <= lastDay) {
+    const day = currentDate.getDate();
     calendar += `${day.toString().padStart(2, " ")} `;
-    currentDayOfWeek = (currentDayOfWeek + 1) % 7;
-
-    if (currentDayOfWeek === 0 && day !== totalDays) {
+    if (currentDate.getDay() === 6 && currentDate < lastDay) {
       calendar += "\n";
     }
+
+    currentDate.setDate(day + 1);
   }
   console.log(calendar);
 }
