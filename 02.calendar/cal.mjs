@@ -37,7 +37,7 @@ function generateCalendar(year, month) {
     calendar += `${day.toString().padStart(2, " ")} `;
     currentDayOfWeek = (currentDayOfWeek + 1) % 7;
 
-    if (currentDayOfWeek === 0) {
+    if (currentDayOfWeek === 0 && day !== totalDays) {
       calendar += "\n";
     }
   }
