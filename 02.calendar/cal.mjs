@@ -17,7 +17,7 @@ if (month < 1 || month > 12) {
   process.exit(1);
 }
 
-function generateCalendar(year, month) {
+function printCalendar(year, month) {
   const firstDay = new Date(year, month - 1, 1);
   const lastDay = new Date(year, month, 0);
 
@@ -44,4 +44,4 @@ function generateCalendar(year, month) {
   console.log(calendar);
 }
 
-generateCalendar(year, month);
+printCalendar(year, month);
