@@ -29,22 +29,19 @@ function generateCalendar(year, month) {
   console.log(daysOfWeek);
 
   let calendar = "";
-  let currentDayOfWeek = 0;
+  let currentDayOfWeek = firstDayOfWeek;
 
-  for (let i = 0; i < firstDayOfWeek; i++) {
-    calendar += "   ";
-    currentDayOfWeek++;
-  }
+  calendar += "   ".repeat(currentDayOfWeek);
 
   for (let day = 1; day <= totalDays; day++) {
-    calendar += day.toString().padStart(2, " ") + " ";
-    currentDayOfWeek++;
+    calendar += `${day.toString().padStart(2, " ")} `;
+    currentDayOfWeek = (currentDayOfWeek + 1) % 7;
 
-    if (currentDayOfWeek % 7 === 0) {
+    if (currentDayOfWeek === 0) {
       calendar += "\n";
     }
   }
-  console.log(calendar.trimEnd());
+  console.log(calendar);
 }
 
 generateCalendar(year, month);
