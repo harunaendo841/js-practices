@@ -3,8 +3,9 @@
 import minimist from "minimist";
 
 const args = minimist(process.argv.slice(2));
-const year = args.y || new Date().getFullYear();
-const month = args.m || new Date().getMonth() + 1;
+const now = new Date();
+const year = args.y ?? now.getFullYear();
+const month = args.m ?? now.getMonth() + 1;
 
 if (year < 1970 || year > 2100) {
   console.error("エラー: 年は1970から2100の範囲で指定してください。");
@@ -20,7 +21,7 @@ function generateCalendar(year, month) {
   const firstDay = new Date(year, month - 1, 1);
   const lastDay = new Date(year, month, 0);
 
-  const daysOfWeek = ["日", "月", "火", "水", "木", "金", "土"];
+  const daysOfWeek = "日 月 火 水 木 金 土";
   const totalDays = lastDay.getDate();
   const firstDayOfWeek = firstDay.getDay();
 
