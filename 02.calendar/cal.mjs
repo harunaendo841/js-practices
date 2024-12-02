@@ -35,12 +35,17 @@ function printCalendar(year, month) {
   while (currentDate <= lastDay) {
     const day = currentDate.getDate();
     calendar += `${day.toString().padStart(2, " ")} `;
-    if (currentDate.getDay() === 6 && currentDate < lastDay) {
+
+    if (
+      currentDate.getDay() === 6 &&
+      currentDate.getDate() !== lastDay.getDate()
+    ) {
       calendar += "\n";
     }
 
     currentDate.setDate(day + 1);
   }
+
   console.log(calendar);
 }
 
