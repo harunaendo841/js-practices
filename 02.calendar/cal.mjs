@@ -26,7 +26,7 @@ function generateCalendar(year, month) {
   const firstDayOfWeek = firstDay.getDay();
 
   console.log(`      ${month}月 ${year}`);
-  console.log(daysOfWeek.join(" "));
+  console.log(daysOfWeek);
 
   let calendar = "";
   let currentDayOfWeek = 0;
