@@ -15,8 +15,8 @@ function validateYearAndMonth(year, month) {
 }
 
 function printCalendar(year, month) {
-  const firstDay = new Date(year, month - 1, 1);
-  const lastDay = new Date(year, month, 0);
+  const startDate = new Date(year, month - 1, 1);
+  const endDate = new Date(year, month, 0);
 
   const daysOfWeek = "日 月 火 水 木 金 土";
   const calendarTitle = `      ${month}月 ${year}`;
@@ -24,16 +24,16 @@ function printCalendar(year, month) {
   console.log(daysOfWeek);
 
   let calendar = "";
-  const initialOffset = firstDay.getDay();
+  const initialOffset = startDate.getDay();
   calendar += "   ".repeat(initialOffset);
 
-  let currentDate = new Date(firstDay);
-  while (currentDate <= lastDay) {
+  let currentDate = new Date(startDate);
+  while (currentDate <= endDate) {
     calendar += currentDate.getDate().toString().padStart(2, " ");
 
     if (
       currentDate.getDay() === 6 ||
-      currentDate.getTime() === lastDay.getTime()
+      currentDate.getTime() === endDate.getTime()
     ) {
       calendar += "\n";
     } else {
