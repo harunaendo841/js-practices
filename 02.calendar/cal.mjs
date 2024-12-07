@@ -24,12 +24,10 @@ function printCalendar(year, month) {
   console.log(daysOfWeek);
 
   let calendar = "";
+  const initialOffset = firstDay.getDay();
+  calendar += "   ".repeat(initialOffset);
+
   let currentDate = new Date(firstDay);
-
-  for (let i = 0; i < currentDate.getDay(); i++) {
-    calendar += "   ";
-  }
-
   while (currentDate <= lastDay) {
     calendar += currentDate.getDate().toString().padStart(2, " ");
 
