@@ -27,8 +27,11 @@ function printCalendar(year, month) {
   const initialOffset = startDate.getDay();
   calendar += "   ".repeat(initialOffset);
 
-  let currentDate = new Date(startDate);
-  while (currentDate <= endDate) {
+  for (
+    let currentDate = new Date(startDate);
+    currentDate <= endDate;
+    currentDate.setDate(currentDate.getDate() + 1)
+  ) {
     calendar += currentDate.getDate().toString().padStart(2, " ");
 
     if (
@@ -39,8 +42,6 @@ function printCalendar(year, month) {
     } else {
       calendar += " ";
     }
-
-    currentDate.setDate(currentDate.getDate() + 1);
   }
 
   console.log(calendar);
