@@ -19,7 +19,8 @@ function printCalendar(year, month) {
   const lastDay = new Date(year, month, 0);
 
   const daysOfWeek = "日 月 火 水 木 金 土";
-  console.log(`      ${month}月 ${year}`);
+  const calendarTitle = `      ${month}月 ${year}`;
+  console.log(calendarTitle);
   console.log(daysOfWeek);
 
   let calendar = "";
