@@ -31,8 +31,7 @@ function printCalendar(year, month) {
   }
 
   while (currentDate <= lastDay) {
-    const day = currentDate.getDate();
-    calendar += day.toString().padStart(2, " ");
+    calendar += currentDate.getDate().toString().padStart(2, " ");
 
     if (
       currentDate.getDay() === 6 ||
@@ -43,7 +42,7 @@ function printCalendar(year, month) {
       calendar += " ";
     }
 
-    currentDate.setDate(day + 1);
+    currentDate.setDate(currentDate.getDate() + 1);
   }
 
   console.log(calendar);
