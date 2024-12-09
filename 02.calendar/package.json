@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "scripts": {
     "fix": "prettier --write . && eslint --fix .",
     "lint": "prettier --check . && eslint ."
@@ -10,5 +11,8 @@
     "globals": "^15.9.0",
     "prettier": "^3.3.3"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "minimist": "^1.2.8"
+  }
 }
